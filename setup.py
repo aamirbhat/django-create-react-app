@@ -11,6 +11,7 @@ setup(
     author='Aamir Bhat',
     author_email='aamirbhat260@gmail.com',
     keywords=['django', 'create-react-app', 'react'],  # arbitrary keywords
+    url='https://github.com/aamirbhat/django-create-react-app.git',
     classifiers=[
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
