@@ -4,8 +4,8 @@ README = open('README.md', 'r').read()
 setup(
     name='django-create-react-app',
     packages=['create_react_app', 'create_react_app/templatetags'],
-    version='0.1',
-    description='Transparently use webpack with django',
+    version='0.2',
+    description='use create react app with django',
     long_description=README,
     long_description_content_type="text/markdown",
     author='Aamir Bhat',
