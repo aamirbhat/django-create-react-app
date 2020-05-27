@@ -10,20 +10,31 @@ Detailed documentation is in the "docs" directory.
 Quick start
 -----------
 
-1. Add "create-react-app" to your INSTALLED_APPS setting like this::
+### Install 
 
+```
+pip install django-create-react-app
+
+```
+
+
+
+
+1. Add "create_react_app" to your INSTALLED_APPS setting like this::
+
+```
     INSTALLED_APPS = [
         ...
-        'create-react-app',
+        'create_react_app',
     ]
+
+```
 
 2. Add create react app configuration into your settings::
 ```
     CREATE_REACT_APP = {
         'DEFAULT': {
-            'CACHE': True,
             'BUNDLE_DIR_NAME': '<path to bundle folder>',
-            'LOADER_CLASS': 'create_react_app.loader.CreateReactLoader',
             'FRONT_END_SERVER': "http://localhost:3000/",
             'is_dev': False,
         }

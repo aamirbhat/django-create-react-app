@@ -1,15 +1,16 @@
 from setuptools import setup
 
 README = open('README.md', 'r').read()
+install_requires=['requests']
 setup(
     name='django-create-react-app',
     packages=['create_react_app', 'create_react_app/templatetags'],
-    version='0.2',
+    version='0.3',
     description='use create react app with django',
     long_description=README,
     long_description_content_type="text/markdown",
     author='Aamir Bhat',
-    author_email='aamirbhat260@gmail.com',
+    author_email='aamirbhat.pro@gmail.com',
     keywords=['django', 'create-react-app', 'react'],  # arbitrary keywords
     url='https://github.com/aamirbhat/django-create-react-app.git',
     classifiers=[
@@ -22,5 +23,6 @@ setup(
         'Environment :: Web Environment',
         'License :: OSI Approved :: MIT License',
     ],
+    install_requires=install_requires,
 
 )
