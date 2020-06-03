@@ -27,7 +27,7 @@ class CreateReactLoader(object):
     def asset_path(self):
         if self.is_dev:
             return self.config['FRONT_END_SERVER'].strip('/') + "/"
-        return ""
+        return "/"
 
     def get_dev_assets(self):
         server = self.asset_path
@@ -43,9 +43,8 @@ class CreateReactLoader(object):
                 return json.load(f)
         except IOError:
             raise IOError(
-                'Error reading {0}. Are you sure webpack has generated '
-                'the file and the path is correct?'.format(
-                    self.config['STATS_FILE']))
+                'Error reading {0}. Are you sure build path is correct?'.format(
+                    self.config['BUNDLE_DIR_NAME']))
 
     def get_assets(self):
         if self.is_dev:
