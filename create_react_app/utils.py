@@ -1,5 +1,4 @@
 from importlib import import_module
-from django.conf import settings
 from .config import load_config
 
 _loaders = {}
@@ -55,5 +54,4 @@ def get_as_tags(extension=None, config='DEFAULT', attrs=''):
             tags.append((
                             '<link type="text/css" href="{0}{1}" rel="stylesheet" {2}/>'
                         ).format(asset_path, chunk, attrs))
-    print(tags, "tags")
     return tags

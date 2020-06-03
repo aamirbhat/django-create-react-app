@@ -7,12 +7,12 @@ register = template.Library()
 
 
 @register.simple_tag
-def render_bundle_css():
-    tags = utils.get_as_tags(extension='css')
+def render_bundle_css(config="DEFAULT"):
+    tags = utils.get_as_tags(extension='css', config=config)
     return mark_safe('\n'.join(tags))
 
 
 @register.simple_tag
-def render_bundle_js():
-    tags = utils.get_as_tags(extension='js')
+def render_bundle_js(config="DEFAULT"):
+    tags = utils.get_as_tags(extension='js', config=config)
     return mark_safe('\n'.join(tags))
