@@ -32,7 +32,12 @@ class CreateReactLoader(object):
     def get_dev_assets(self):
         server = self.asset_path
         url = "{frontend_server}{asset_file}".format(frontend_server=server, asset_file=self.asset_file)
-        data = requests.get(url)
+        try:
+            data = requests.get(url, timeout=3)
+        except:
+            raise IOError(
+                'Error reading {0}. Are you sure webpack has been started please check yarn start')
+
         return data.json()
 
     def get_prod_assets(self):
@@ -43,8 +48,8 @@ class CreateReactLoader(object):
                 return json.load(f)
         except IOError:
             raise IOError(
-                'Error reading {0}. Are you sure build path is correct?'.format(
-                    self.config['BUNDLE_DIR_NAME']))
+                'Are you sure webpack has generated '
+                'the asset-manifest file in the build directory and the path is correct?')
 
     def get_assets(self):
         if self.is_dev:
@@ -55,4 +60,10 @@ class CreateReactLoader(object):
         assets = self.get_assets()
         if assets:
             chunks = assets['entrypoints']
+            return chunks
+
+    def get_pages(self):
+        pages = self.get_assets()
+        if pages:
+            chunks = pages.get('pages', {})
             return chunks

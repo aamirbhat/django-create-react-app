@@ -40,10 +40,14 @@ def _get_bundle(extension, loader):
     return bundle
 
 
-def get_as_tags(extension=None, config='DEFAULT', attrs=''):
-    loader = get_loader(config)
-    bundle = _get_bundle(extension, loader)
-    asset_path = loader.asset_path
+def _page_bundle(extension, loader, page_name):
+    bundle = loader.get_pages().get(page_name)
+    if extension:
+        bundle = _filter_by_extension(bundle, extension)
+    return bundle
+
+
+def src_tags(bundle, asset_path, attrs):
     tags = []
     for chunk in bundle:
         if chunk.endswith(('.js', '.js.gz')):
@@ -55,3 +59,17 @@ def get_as_tags(extension=None, config='DEFAULT', attrs=''):
                             '<link type="text/css" href="{0}{1}" rel="stylesheet" {2}/>'
                         ).format(asset_path, chunk, attrs))
     return tags
+
+
+def get_as_tags(extension=None, config='DEFAULT', attrs=''):
+    loader = get_loader(config)
+    bundle = _get_bundle(extension, loader)
+    asset_path = loader.asset_path
+    return src_tags(bundle, asset_path, attrs)
+
+
+def get_tags_per_page(extension=None, page_name='main', config='DEFAULT', attrs=''):
+    loader = get_loader(config)
+    bundle = _page_bundle(extension, loader, page_name)
+    asset_path = loader.asset_path
+    return src_tags(bundle, asset_path, attrs)
