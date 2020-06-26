@@ -8,7 +8,7 @@ __all__ = (
 
 class BaseWebpackLoaderException(Exception):
     """
-    Base exception for django-webpack-loader.
+    Base exception for django-create-react-app.
     """
 
 
@@ -20,7 +20,7 @@ class WebpackError(BaseWebpackLoaderException):
 
 class WebpackLoaderBadStatsError(BaseWebpackLoaderException):
     """
-    The stats file does not contain valid data.
+    The Build has not accept manifest file.
     """
 
 
