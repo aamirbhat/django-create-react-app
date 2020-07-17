@@ -18,11 +18,11 @@ def import_string(dotted_path):
         raise ImportError('%s doesn\'t look like a valid module path' % dotted_path)
 
 
-def get_loader(config_name):
+def get_loader(config_name, manifest_path=None):
     if config_name not in _loaders:
         config = load_config(config_name)
         loader_class = import_string(config['LOADER_CLASS'])
-        _loaders[config_name] = loader_class(config)
+        _loaders[config_name] = loader_class(config, manifest_path)
     return _loaders[config_name]
 
 
@@ -68,8 +68,8 @@ def get_as_tags(extension=None, config='DEFAULT', attrs=''):
     return src_tags(bundle, asset_path, attrs)
 
 
-def get_tags_per_page(extension=None, page_name='main', config='DEFAULT', attrs=''):
-    loader = get_loader(config)
+def get_tags_per_page(extension=None, page_name='main', config='DEFAULT', manifest_path=None, attrs=''):
+    loader = get_loader(config, manifest_path)
     bundle = _page_bundle(extension, loader, page_name)
     asset_path = loader.asset_path
     return src_tags(bundle, asset_path, attrs)
