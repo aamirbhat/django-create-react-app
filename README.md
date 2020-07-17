@@ -1,11 +1,8 @@
 django-create-react-app
 ----------------------
+This app helps us to integrate the react in django project through create react app template. This app works both in dev and production mode of the react. 
 
 
-This app is a Django app that helps to integrating the integrate the React that has been added in your Project through
-create React App
-
-Detailed documentation is in the "docs" directory.
 
 Quick start
 -----------
@@ -16,7 +13,6 @@ Quick start
 pip install django-create-react-app
 
 ```
-
 
 
 
