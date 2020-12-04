@@ -113,11 +113,11 @@ CREATE_REACT_APP = {
 
 <html>
   <head>
-    {% render_bundle_css ADMIN %}
+    {% render_bundle_css "ADMIN" %}
   </head>
   <body>
     <div id="root"></div>
-     {% render_bundle_js ADMIN %}
+     {% render_bundle_js "ADMIN" %}
   </body>
 </head>
     
