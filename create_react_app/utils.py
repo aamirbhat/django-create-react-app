@@ -49,6 +49,8 @@ def _page_bundle(extension, loader, page_name):
 
 def src_tags(bundle, asset_path, attrs):
     tags = []
+    if not bundle:
+        return tags
     for chunk in bundle:
         if chunk.endswith(('.js', '.js.gz')):
             tags.append((
@@ -58,6 +60,20 @@ def src_tags(bundle, asset_path, attrs):
             tags.append((
                             '<link type="text/css" href="{0}{1}" rel="stylesheet" {2}/>'
                         ).format(asset_path, chunk, attrs))
+    return tags
+
+
+def script_paths(bundle, asset_path):
+    tags = []
+    if not bundle:
+        return tags
+    for chunk in bundle:
+        if chunk.endswith(('.js', '.js.gz')):
+            file = "{0}{1}".format(asset_path, chunk)
+            tags.append(file)
+        elif chunk.endswith(('.css', '.css.gz')):
+            file = "{0}{1}".format(asset_path, chunk)
+            tags.append(file)
     return tags
 
 
@@ -73,3 +89,13 @@ def get_tags_per_page(extension=None, page_name='main', config='DEFAULT', manife
     bundle = _page_bundle(extension, loader, page_name)
     asset_path = loader.asset_path
     return src_tags(bundle, asset_path, attrs)
+
+
+def get_src_files(extension=None, page_name=None, config='DEFAULT'):
+    loader = get_loader(config)
+    if page_name:
+        bundle = _page_bundle(extension, loader, page_name)
+    else:
+        bundle = _get_bundle(extension, loader)
+    asset_path = loader.asset_path
+    return script_paths(bundle, asset_path)
