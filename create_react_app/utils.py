@@ -28,7 +28,7 @@ def get_loader(config_name, manifest_path=None):
 
 def _filter_by_extension(bundle, extension):
     '''Return only files with the given extension'''
-    if(isinstance(bundle,list)):
+    if isinstance(bundle, list):
         for chunk in bundle:
             if chunk.endswith('.{0}'.format(extension)):
                 yield chunk
