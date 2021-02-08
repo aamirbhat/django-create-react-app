@@ -1,4 +1,8 @@
 .idea
+
+
+
+
 *.pyc
 dist/*
 django_create_react_app.egg-info
