@@ -1,7 +1,11 @@
 from importlib import import_module
+
+from django.conf import settings
+
 from .config import load_config
 
 _loaders = {}
+ASSET_LOADER_CACHE = getattr(settings, "RUNTIME_ASSET_LOADER", False)
 
 
 def import_string(dotted_path):
@@ -19,7 +23,7 @@ def import_string(dotted_path):
 
 
 def get_loader(config_name, manifest_path=None):
-    if config_name not in _loaders:
+    if config_name not in _loaders or ASSET_LOADER_CACHE:
         config = load_config(config_name)
         loader_class = import_string(config['LOADER_CLASS'])
         _loaders[config_name] = loader_class(config, manifest_path)
