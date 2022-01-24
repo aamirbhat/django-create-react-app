@@ -107,8 +107,10 @@ CREATE_REACT_APP = {
     },
 }
 
-**is_dev: True**  make sure react app is running on FRONT_END_SERVER on same port which is declared 
-**is_dev: False** make sure build path is pointed to the right build directory 
+#### is_dev: True 
+make sure react app is running on FRONT_END_SERVER on same port which is declared 
+### is_dev: False
+make sure build path is pointed to the right build directory 
 
 
 ```
