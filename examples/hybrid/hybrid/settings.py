@@ -120,6 +120,12 @@ CREATE_REACT_APP = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': REACT_BUILD,
         'FRONT_END_SERVER': "http://localhost:3000/",
-        'is_dev': True,
+        'IS_DEV': False,
+        "PUBLIC_PATH_DEV": "http://localhost:3000/",
+        # "PUBLIC_PATH": "/static/"
     }
 }
+
+STATICFILES_DIRS = (
+    os.path.join(REACT_BUILD, 'static'),
+)

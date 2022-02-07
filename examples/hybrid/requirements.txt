@@ -1,8 +1,11 @@
-asgiref==3.2.7
-certifi==2020.4.5.1
-chardet==3.0.4
-Django==3.1.12
-idna==2.9
-pytz==2020.1
-sqlparse==0.3.1
-urllib3==1.26.5
+idna==3.3
+requests==2.27.1
+sqlparse==0.4.2
+urllib3==1.26.8
+asgiref==3.5.0
+certifi==2021.10.8
+charset-normalizer==2.0.11
+Django==4.0.2
+-e git+https://github.com/aamirbhat/django-create-react-app.git@eb3555d8282a9255bd14317392da335f234f87f7#egg=django_create_react_app
+
+
