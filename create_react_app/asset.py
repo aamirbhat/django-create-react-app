@@ -37,8 +37,8 @@ class AssetManager:
                 tags.append(self.asset.script_tag(chunk))
         return tags
 
-    def css_bundle(self):
+    def css_tags(self):
         return self.get_tag_bundle(extension="css", ends_with=['.css', '.css.gz'])
 
-    def js_bundle(self):
+    def js_tags(self):
         return self.get_tag_bundle(extension="js", ends_with=['.js', '.js.gz'])

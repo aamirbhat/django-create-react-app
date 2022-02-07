@@ -9,16 +9,14 @@ register = template.Library()
 
 @register.simple_tag
 def render_bundle_css(config="DEFAULT"):
-    tags = AssetManager(config).css_bundle()
-    print("tags",tags)
+    tags = AssetManager(config).css_tags()
     # tags = utils.get_as_tags(extension='css', config=config)
     return mark_safe('\n'.join(tags))
 
 
 @register.simple_tag
 def render_bundle_js(config="DEFAULT"):
-    tags = AssetManager(config).js_bundle()
-    print("tags",tags)
+    tags = AssetManager(config).js_tags()
     # tags = utils.get_as_tags(extension='js', config=config)
     return mark_safe('\n'.join(tags))
 

@@ -25,7 +25,6 @@ class CreateReactLoader(object):
 
     @property
     def is_dev(self):
-        print("self.config",self.config)
         return self.config.get("IS_DEV", False)
 
     def get_dev_path(self):
@@ -66,7 +65,6 @@ class CreateReactLoader(object):
                 manifest_file = self.manifest_file_path
             else:
                 manifest_file = os.path.join(build_folder, self.asset_file)
-            print("manifest_file",manifest_file)
             with open(manifest_file, encoding="utf-8") as f:
                 return json.load(f)
         except IOError:
