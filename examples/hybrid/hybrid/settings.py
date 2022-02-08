@@ -122,7 +122,7 @@ CREATE_REACT_APP = {
         'FRONT_END_SERVER': "http://localhost:3000/",
         'IS_DEV': False,
         "PUBLIC_PATH_DEV": "http://localhost:3000/",
-        # "PUBLIC_PATH": "/static/"
+        "PUBLIC_PATH": "/static/"
     }
 }
 
