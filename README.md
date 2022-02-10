@@ -67,7 +67,7 @@ STATICFILES_DIRS = (
         'DEFAULT': {
             'BUNDLE_DIR_NAME': REACT_BUILD_DIRECTORY,  
             'FRONT_END_SERVER': "http://localhost:3000/",
-            'is_dev': False,
+            'IS_DEV': False,
         }
     }
 ```
@@ -96,14 +96,16 @@ STATICFILES_DIRS = (
 
 CREATE_REACT_APP = {
     'DEFAULT': {
-        'BUNDLE_DIR_NAME': CLIENT_FRONTEND_BUILD,
+        'BUNDLE_DIR_NAME': REACT_BUILD,
         'FRONT_END_SERVER': "http://localhost:3000/",
-        'is_dev':  True,
-    },
+        'IS_DEV': False,
+        "PUBLIC_PATH_DEV": "http://localhost:3000/",
+        "PUBLIC_PATH": "/static/"
+    }
     'ADMIN': {
-        'BUNDLE_DIR_NAME': ADMIN_FRONTEND_BUILD,
-        'FRONT_END_SERVER': "http://localhost:3001/",
-        'is_dev': True,
+        'BUNDLE_DIR_NAME': REACT_BUILD,
+        'FRONT_END_SERVER': "http://localhost:3000/",
+        'IS_DEV': False,
     },
 }
 
@@ -112,6 +114,9 @@ CREATE_REACT_APP = {
 make sure react app is running on FRONT_END_SERVER on same port which is declared 
 #### is_dev: False
 make sure build path is pointed to the right build directory 
+
+
+
 
 ### Rendering react admin app inside templates :: 
 ```
@@ -128,3 +133,37 @@ make sure build path is pointed to the right build directory
 </head>
     
 ```
+
+
+### Using Preloading ::
+The is_preload=True option in the render_bundle_css or render_bundle_js template tag can be used to add rel="preload" link tags.
+```
+{% render_bundle_css is_preload=True %}
+
+```
+
+### Add attributes
+add some extra attributes to the tag
+```
+{% render_bundle_js  attrib="async" %}
+
+{% render_bundle_js  attrib="disabled" %}
+```
+
+
+### migration from 0.8.4 to 0.9
+"is_dev" changed to "IS_DEV" 
+is_dev in lowercase will not work 
+
+
+### docker support
+PUBLIC_PATH_DEV default value will be FRONT_END_SERVER, which will be used for incase of docker
+
+PUBLIC_PATH_DEV will be used in case of docker to http://localhost:3000/
+FRONT_END_SERVER: host.docker.internal
+
+### django storage support
+
+change PUBLIC_PATH to storagepath e.g
+
+PUBLIC_PATH:"https://234234234.aws.com/static/"
