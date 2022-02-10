@@ -120,9 +120,9 @@ CREATE_REACT_APP = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': REACT_BUILD,
         'FRONT_END_SERVER': "http://localhost:3000/",
-        'IS_DEV': False,
-        "PUBLIC_PATH_DEV": "http://localhost:3000/",
-        "PUBLIC_PATH": "/static/"
+        'IS_DEV': True,
+        # "PUBLIC_PATH_DEV": "http://localhost:3000/",
+        # "PUBLIC_PATH": "/static/"
     }
 }
 

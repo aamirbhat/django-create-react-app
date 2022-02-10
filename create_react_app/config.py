@@ -14,7 +14,7 @@ DEFAULT_CONFIG = {
         'BUNDLE_DIR_NAME': '/Users/aamirbhatt/workspace/hack_django_react/dashboard/static',
         'LOADER_CLASS': 'create_react_app.loader.CreateReactLoader',
         'FRONT_END_SERVER': "http://localhost:3000/",
-        'PUBLIC_PATH': "static/",
+        'PUBLIC_PATH': "/static/",
         "PUBLIC_PATH_DEV": "/",
         'IS_DEV': False
     }
