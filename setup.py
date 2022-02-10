@@ -1,17 +1,18 @@
 from setuptools import setup
 
 README = open('README.md', 'r').read()
-install_requires=['requests']
+install_requires = ['requests']
 setup(
     name='django-create-react-app',
     packages=['create_react_app', 'create_react_app/templatetags'],
-    version='0.8.4',
+    version='0.9.0',
     description='use create react app with django',
     long_description=README,
     long_description_content_type="text/markdown",
     author='Aamir Bhat',
     author_email='aamirbhat.pro@gmail.com',
-    keywords=['django', 'create-react-app', 'react','django react','django integration  react',' create react app'],  # arbitrary keywords
+    keywords=['django', 'create-react-app', 'react', 'django react', 'django integration  react', ' create react app'],
+    # arbitrary keywords
     url='https://github.com/aamirbhat/django-create-react-app.git',
     classifiers=[
         'Programming Language :: Python :: 2.6',
